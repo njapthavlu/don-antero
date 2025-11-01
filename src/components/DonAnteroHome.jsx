@@ -172,7 +172,7 @@ export default function DonAnteroHome() {
         <div className="grid gap-6 md:grid-cols-2">
           {CATEGORIES_FEATURED.map((cat) => (
             <a key={cat.slug} href="/catalogo" className="group relative overflow-hidden rounded-3xl">
-              <img src={cat.cover} alt={cat.title} className="aspect-[16/9] w-full object-cover"/>
+              <img src={cat.cover} alt={cat.title} loading="lazy" className="aspect-[16/9] w-full object-cover"/>
               <div className="absolute inset-0 bg-slate-900/10 transition group-hover:bg-slate-900/20"/>
               <div className="absolute left-4 top-4">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-900">

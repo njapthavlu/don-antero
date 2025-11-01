@@ -102,7 +102,7 @@ export default function DonAnteroCatalogGrid() {
             >
               <a href={`/producto/${p.slug}`} className="block">
                 <div className="overflow-hidden">
-                  <img src={(p.images && p.images[0]) || ""} alt={p.name} className="aspect-[3/4] w-full object-cover transition duration-300 group-hover:scale-[1.03]"/>
+                  <img src={(p.images && p.images[0]) || ""} alt={p.name} loading="lazy" className="aspect-[3/4] w-full object-cover transition duration-300 group-hover:scale-[1.03]"/>
                 </div>
                 <div className="p-4">
                   <div className="text-xs text-slate-500">{p.category}</div>
