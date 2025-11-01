@@ -12,6 +12,7 @@ import {
   Shirt,
   Boxes,
 } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 // Datos simplificados para homepage (solo categorías destacadas)
 const CATEGORIES_FEATURED = [
