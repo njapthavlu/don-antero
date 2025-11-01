@@ -7,12 +7,12 @@ import {
   MapPin,
   ArrowRight,
   ClipboardList,
-  Factory,
   HardHat,
   Shirt,
   Boxes,
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import logoImg from "../images/donantero-logo.png";
 
 // Datos simplificados para homepage (solo categorías destacadas)
 const CATEGORIES_FEATURED = [
@@ -96,9 +96,8 @@ export default function DonAnteroHome() {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
         <Section className="flex h-16 items-center gap-6">
-          <a href="/" className="group inline-flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-lg bg-slate-900 text-white"><Factory className="h-5 w-5"/></div>
-            <div className="text-lg font-semibold tracking-tight">Don Antero</div>
+          <a href="/" className="group inline-flex items-center">
+            <img src={logoImg} alt="Don Antero" className="h-10 w-auto" />
           </a>
           <nav className="ml-auto hidden gap-6 md:flex">
             <a href="/" className="hover:text-slate-900">Inicio</a>
