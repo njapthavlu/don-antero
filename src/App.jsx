@@ -4,7 +4,6 @@ import DonAnteroHome from './components/DonAnteroHome';
 import DonAnteroCatalogGrid from './components/DonAnteroCatalogGrid';
 import DonAnteroProductPage from './components/DonAnteroProductPage';
 import CotizacionPage from './components/CotizacionPage';
-
 export default function App() {
   return (
     <Router>
