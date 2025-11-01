@@ -13,7 +13,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.22.0",
     "framer-motion": "^11.0.0",
-    "lucide-react": "^0.344.0"
+    "lucide-react": "^0.344.0",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.1",
