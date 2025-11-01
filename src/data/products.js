@@ -1,4 +1,18 @@
 // Generated from donantero-products-combined.csv
+
+// Import product images
+import buzoPolarImg from '../images/buzo-polar-antipeeling.jpg';
+import chalecoTruckerImg from '../images/chaleco-trucker.jpg';
+import chalecoPolarImg from '../images/chaleco-polar-antipeeling.jpg';
+import camisaPantalonBomberosImg from '../images/camisa-pantalon-bomberos-policias-antidesgarro-reebstop.jpg';
+import camisaAntdesgarroImg from '../images/camisa-de-tela-antidesgarro-reebstop.jpg';
+import camisaGabardina6ozReflectivoImg from '../images/camisa-gabardina-6-oz-con-reflectivo.jpg';
+import camisaGabardinaSanforizadaImg from '../images/camisa-gabardina-sanforizada-6-oz.jpg';
+import camisaBatistaImg from '../images/camisa-de-tela-batista.jpg';
+import buzoFrisaPeinadaImg from '../images/buzo-frisa-peinada-frisa-cardada.jpg';
+import chalecoGabardinaReflectivoImg from '../images/chaleco-de-tela-gabardina-con-reflectivo.jpg';
+import ambosIndustriaAlimenticiaImg from '../images/ambos-industria-alimenticia-velcro-elastico-gabardina.jpg';
+
 export const PRODUCTS = [
   {
     "slug": "remera-jersey-peinado",
@@ -52,7 +66,7 @@ export const PRODUCTS = [
       "buzo"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%230e2a47' offset='0'/><stop stop-color='%23257cff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      buzoPolarImg
     ],
     "summary": "Buzo térmico en polar, liviano y de secado rápido.",
     "specs": [
@@ -183,7 +197,7 @@ export const PRODUCTS = [
       "chaleco"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      chalecoGabardinaReflectivoImg
     ],
     "summary": "Chaleco de gabardina con franjas reflectivas para alta visibilidad.",
     "specs": [
@@ -229,7 +243,7 @@ export const PRODUCTS = [
       "matelase"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23257cff' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      chalecoTruckerImg
     ],
     "summary": "Chaleco trucker con opción de tira reflectiva.",
     "specs": [
@@ -267,7 +281,7 @@ export const PRODUCTS = [
       "chaleco"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%230e2a47' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      chalecoPolarImg
     ],
     "summary": "Chaleco de polar con cierre y bolsillos delanteros.",
     "specs": [
@@ -315,7 +329,7 @@ export const PRODUCTS = [
       "uniforme"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%23257cff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      camisaPantalonBomberosImg
     ],
     "summary": "Conjunto en tela antidesgarro con refuerzos y costuras dobles.",
     "specs": [
@@ -399,7 +413,7 @@ export const PRODUCTS = [
       "camisa"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23257cff' offset='0'/><stop stop-color='%230e2a47' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      camisaAntdesgarroImg
     ],
     "summary": "Camisa en tela antidesgarro Reebstop con doble costura.",
     "specs": [
@@ -492,7 +506,7 @@ export const PRODUCTS = [
       "camisa"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      camisaGabardina6ozReflectivoImg
     ],
     "summary": "Camisa de gabardina sanforizada con bandas reflectivas.",
     "specs": [
@@ -539,7 +553,7 @@ export const PRODUCTS = [
       "camisa"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23257cff' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      camisaGabardinaSanforizadaImg
     ],
     "summary": "Camisa sanforizada 6 oz con doble costura.",
     "specs": [
@@ -657,7 +671,7 @@ export const PRODUCTS = [
       "ambos"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23ffffff' offset='0'/><stop stop-color='%23e8e8e8' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      ambosIndustriaAlimenticiaImg
     ],
     "summary": "Conjunto para industria alimenticia en tela Pomplin.",
     "specs": [
@@ -698,7 +712,7 @@ export const PRODUCTS = [
       "camisa"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%233a86ff' offset='0'/><stop stop-color='%2381a9ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      camisaBatistaImg
     ],
     "summary": "Camisa de batista, corte clásico o slim fit.",
     "specs": [
@@ -740,7 +754,7 @@ export const PRODUCTS = [
       "peinada"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%233a86ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      buzoFrisaPeinadaImg
     ],
     "summary": "Buzo en frisa invisible peinada con terminaciones en Morley.",
     "specs": [
