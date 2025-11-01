@@ -114,7 +114,6 @@ export const PRODUCTS = [
       "matelase"
     ],
     "images": [
-      camperaTruckerMatelasseImg
     ],
     "summary": "Mameluco térmico con forrería matelassé y capucha desmontable.",
     "specs": [
@@ -161,7 +160,6 @@ export const PRODUCTS = [
       "capucha"
     ],
     "images": [
-      camperaTruckerMatelasseImg
     ],
     "summary": "Campera trucker con forrería matelassé 150g y capucha desmontable.",
     "specs": [
