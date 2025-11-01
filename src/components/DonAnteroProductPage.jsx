@@ -83,13 +83,13 @@ export default function DonAnteroProductPage() {
         <div className="grid items-start gap-10 md:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .6 }}>
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-sm">
-              <img src={(product.images && product.images[img]) || ""} alt={product.name} className="mx-auto w-full max-w-md rounded-xl object-cover"/>
+              <img src={(product.images && product.images[img]) || ""} alt={product.name} loading="lazy" className="mx-auto w-full max-w-md rounded-xl object-cover"/>
             </div>
             {product.images && product.images.length > 1 && (
               <div className="mt-3 grid grid-cols-5 gap-2">
                 {product.images.map((src, i) => (
                   <button key={i} onClick={() => setImg(i)} className={`overflow-hidden rounded-lg border ${img===i?"border-slate-900":"border-slate-200"}`}>
-                    <img src={src} alt={`thumb-${i}`} className="aspect-square w-full object-cover"/>
+                    <img src={src} alt={`thumb-${i}`} loading="lazy" className="aspect-square w-full object-cover"/>
                   </button>
                 ))}
               </div>
