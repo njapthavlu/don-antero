@@ -1,5 +1,16 @@
 // Imports de imágenes reales desde src/images/ (nombres normalizados sin tildes ni caracteres especiales)
-
+import buzoPolarImg from '../images/buzo-polar-antipeeling.jpg';
+import camperaTruckerMatelasseImg from '../images/campera-trucker-forrada-matelasse-150-grs-capucha-desmontable.jpg';
+import chalecoGabardinaReflectivoImg from '../images/chaleco-de-tela-gabardina-con-reflectivo.jpg';
+import chalecoTruckerImg from '../images/chaleco-trucker.jpg';
+import chalecoPolarImg from '../images/chaleco-polar-antipeeling.jpg';
+import camisaPantalonBomberosImg from '../images/camisa-pantalon-bomberos-policias-antidesgarro-reebstop.jpg';
+import camisaReebstopImg from '../images/camisa-de-tela-antidesgarro-reebstop.jpg';
+import camisaGabardina6ozReflectivoImg from '../images/camisa-gabardina-6-oz-con-reflectivo.jpg';
+import camisaGabardina6ozImg from '../images/camisa-gabardina-sanforizada-6-oz.jpg';
+import ambosAlimenticiaImg from '../images/ambos-industria-alimenticia-velcro-elastico-gabardina.jpg';
+import camisaBatistaImg from '../images/camisa-de-tela-batista.jpg';
+import buzoFrisaImg from '../images/buzo-frisa-peinada-frisa-cardada.jpg';
 
 // Placeholder para productos sin imagen
 const placeholderImg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%23257cff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>";
@@ -104,6 +115,7 @@ export const PRODUCTS = [
       "matelase"
     ],
     "images": [
+      camperaTruckerMatelasseImg
     ],
     "summary": "Mameluco térmico con forrería matelassé y capucha desmontable.",
     "specs": [
