@@ -1,6 +1,5 @@
 // Imports de imágenes reales desde src/images/ (nombres normalizados sin tildes ni caracteres especiales)
 import buzoPolarImg from '../images/buzo-polar-antipeeling.jpg';
-import camperaTruckerMatelasseImg from '../images/campera-trucker-forrada-matelasse-150-grs-capucha-desmontable.jpg';
 import chalecoGabardinaReflectivoImg from '../images/chaleco-de-tela-gabardina-con-reflectivo.jpg';
 import chalecoTruckerImg from '../images/chaleco-trucker.jpg';
 import chalecoPolarImg from '../images/chaleco-polar-antipeeling.jpg';
