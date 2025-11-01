@@ -104,6 +104,12 @@ export default function DonAnteroHome() {
             <a href="/" className="hover:text-slate-900">Inicio</a>
             <a href="/catalogo" className="hover:text-slate-900">Catálogo</a>
             <a href="#cotizar" className="hover:text-slate-900">Pedí tu cotización</a>
+              <NavLink
+     to="/cotizacion"
+    className={({ isActive }) => (isActive ? "text-slate-900 font-semibold" : "hover:text-slate-900")}
+   >
+    Cotización
+ </NavLink>
           </nav>
           <a href="#cotizar" className="ml-auto inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-white hover:opacity-95 md:ml-2">
             Solicitar cotización <ArrowRight className="h-4 w-4"/>
