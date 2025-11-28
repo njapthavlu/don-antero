@@ -1,37 +1,93 @@
+// api/send-quote.js
 // Vercel Serverless Function para enviar emails de cotización
-// Usa Resend (npm install resend) o nodemailer según prefieras
+// Usa Resend (npm install resend)
 
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+
+// Configurable por env vars (recomendado)
+const QUOTE_TO = process.env.QUOTE_TO || "ventas@donantero.com.ar";
+const QUOTE_FROM = process.env.QUOTE_FROM || "Don Antero <noreply@donantero.com.ar>";
+
+const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
+
+// Mini helper: escape básico para evitar HTML injection en el email
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function safeInt(n, fallback = 0) {
+  const x = Number(n);
+  return Number.isFinite(x) ? x : fallback;
+}
 
 export default async function handler(req, res) {
   // Solo permitir POST
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).json({ error: "Método no permitido" });
+  }
+
+  // Asegura configuración
+  if (!resend) {
+    return res.status(500).json({
+      error: "RESEND_API_KEY no configurada en Vercel",
+    });
   }
 
   try {
-    const { contacto, items } = req.body;
+    const { contacto, items } = req.body || {};
 
     // Validación básica
-    if (!contacto || !items || items.length === 0) {
-      return res.status(400).json({ error: 'Datos incompletos' });
+    if (!contacto || !Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ error: "Datos incompletos" });
+    }
+
+    const nombre = escapeHtml(contacto.nombre);
+    const telefonoRaw = String(contacto.telefono ?? "");
+    const telefono = escapeHtml(telefonoRaw);
+    const emailRaw = String(contacto.email ?? "");
+    const email = escapeHtml(emailRaw);
+    const empresa = escapeHtml(contacto.empresa || "-");
+
+    // Sanitizar items
+    const cleanItems = items
+      .map((it) => ({
+        producto: escapeHtml(it?.producto),
+        cantidad: Math.max(0, safeInt(it?.cantidad, 0)),
+        nota: escapeHtml(it?.nota || "-"),
+      }))
+      .filter((it) => it.producto && it.cantidad > 0);
+
+    if (cleanItems.length === 0) {
+      return res.status(400).json({ error: "Items inválidos" });
     }
 
     // Construir tabla HTML de productos
-    const productosHTML = items
+    const productosHTML = cleanItems
       .map(
         (item, index) => `
         <tr style="border-bottom: 1px solid #e2e8f0;">
           <td style="padding: 12px; text-align: left;">${index + 1}</td>
           <td style="padding: 12px; text-align: left;"><strong>${item.producto}</strong></td>
           <td style="padding: 12px; text-align: center;">${item.cantidad}</td>
-          <td style="padding: 12px; text-align: left;">${item.nota || '-'}</td>
+          <td style="padding: 12px; text-align: left;">${item.nota || "-"}</td>
         </tr>
       `
       )
-      .join('');
+      .join("");
+
+    const totalProductos = cleanItems.length;
+    const unidadesTotales = cleanItems.reduce((sum, item) => sum + item.cantidad, 0);
+    const generatedAt = new Date().toLocaleString("es-AR", {
+      timeZone: "America/Argentina/Buenos_Aires",
+    });
 
     // HTML del email
     const htmlContent = `
@@ -59,19 +115,19 @@ export default async function handler(req, res) {
             <table style="width: 100%; margin-bottom: 24px;">
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; width: 120px;">Nombre:</td>
-                <td style="padding: 8px 0;">${contacto.nombre}</td>
+                <td style="padding: 8px 0;">${nombre}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Teléfono:</td>
-                <td style="padding: 8px 0;"><a href="tel:${contacto.telefono}" style="color: #0f172a; text-decoration: none;">${contacto.telefono}</a></td>
+                <td style="padding: 8px 0;"><a href="tel:${escapeHtml(telefonoRaw)}" style="color: #0f172a; text-decoration: none;">${telefono}</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Email:</td>
-                <td style="padding: 8px 0;"><a href="mailto:${contacto.email}" style="color: #2563eb; text-decoration: none;">${contacto.email}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(emailRaw)}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600;">Empresa:</td>
-                <td style="padding: 8px 0;">${contacto.empresa}</td>
+                <td style="padding: 8px 0;">${empresa}</td>
               </tr>
             </table>
 
@@ -96,10 +152,10 @@ export default async function handler(req, res) {
             <!-- Resumen -->
             <div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #0f172a;">
               <p style="margin: 0; font-size: 14px; color: #64748b;">
-                <strong>Total de productos:</strong> ${items.length}
+                <strong>Total de productos:</strong> ${totalProductos}
               </p>
               <p style="margin: 8px 0 0; font-size: 14px; color: #64748b;">
-                <strong>Unidades totales:</strong> ${items.reduce((sum, item) => sum + item.cantidad, 0)}
+                <strong>Unidades totales:</strong> ${unidadesTotales}
               </p>
             </div>
           </div>
@@ -110,7 +166,7 @@ export default async function handler(req, res) {
               Este email fue generado automáticamente desde <strong>donantero.com.ar</strong>
             </p>
             <p style="margin: 8px 0 0; font-size: 12px; color: #94a3b8;">
-              ${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}
+              ${generatedAt}
             </p>
           </div>
 
@@ -136,39 +192,50 @@ Empresa:   ${contacto.empresa}
 PRODUCTOS SOLICITADOS
 ═════════════════════════════════════
 
-${items.map((item, i) => `${i + 1}. ${item.producto}
+${cleanItems
+  .map(
+    (item, i) => `${i + 1}. ${item.producto}
    Cantidad: ${item.cantidad}
-   Notas: ${item.nota || '-'}
-`).join('\n')}
+   Notas: ${item.nota || "-"}`
+  )
+  .join("\n\n")}
 
 ─────────────────────────────────────
-Total productos: ${items.length}
-Unidades totales: ${items.reduce((sum, item) => sum + item.cantidad, 0)}
+Total productos: ${totalProductos}
+Unidades totales: ${unidadesTotales}
 ─────────────────────────────────────
 
-Generado: ${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}
-    `.trim();
+Generado: ${generatedAt}
+`.trim();
 
-    // Enviar email con Resend
-    await resend.emails.send({
-      from: 'Don Antero <noreply@donantero.com.ar>',
-      to: 'sandroni.lucas.javier@gmail.com',
-      replyTo: contacto.email,
+    // Enviar email con Resend (chequeando error explícitamente)
+    const { data, error } = await resend.emails.send({
+      from: QUOTE_FROM,
+      to: QUOTE_TO,
+      replyTo: emailRaw || undefined,
       subject: `Nueva Cotización de ${contacto.nombre} - Don Antero`,
       html: htmlContent,
-      text: textContent
+      text: textContent,
     });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return res.status(502).json({
+        error: "No se pudo enviar la cotización",
+        details: error.message ?? String(error),
+      });
+    }
 
     return res.status(200).json({
       success: true,
-      message: 'Cotización enviada exitosamente'
+      id: data?.id,
+      message: "Cotización enviada exitosamente",
     });
-
   } catch (error) {
-    console.error('Error al enviar cotización:', error);
+    console.error("Error al enviar cotización:", error);
     return res.status(500).json({
-      error: 'Error al enviar la cotización',
-      details: error.message
+      error: "Error al enviar la cotización",
+      details: error?.message || String(error),
     });
   }
 }
