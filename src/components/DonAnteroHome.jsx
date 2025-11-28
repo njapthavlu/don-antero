@@ -15,7 +15,7 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import logoDonAntero from "../images/logo-don-antero.jpg";
 import placeropa from "../images/place-ropa.jpg";
-import placetrabajo from "..images/elementos-trabajo.jpg";
+import placetrabajo from "../images/elementos-trabajo.jpg";
 
 // Datos simplificados para homepage (solo categorías destacadas)
 const CATEGORIES_FEATURED = [
