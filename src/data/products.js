@@ -18,6 +18,7 @@ import camperforrada from '../images/camper-forrada.jpg';
 import pantgabardina from '../images/pantalon-gabardina.jpg';
 import pantclasico from '../images/pantalon-clasico.jpg';
 import camperatruckerr from '../images/campera-truckerr.jpg';
+import camisaombu from '../images/camisa-ombu.jpg';
 
 export const PRODUCTS = [
   {
@@ -651,7 +652,7 @@ pantclasico
       "camisa"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23d4a373' offset='0'/><stop stop-color='%23c19a6b' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+camisaombu
     ],
     "summary": "Camisa de trabajo en tela Ombú, color beige.",
     "specs": [
