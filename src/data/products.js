@@ -13,6 +13,8 @@ import camisaBatistaImg from '../images/camisa-de-tela-batista.jpg';
 import buzoFrisaPeinadaImg from '../images/buzo-frisa-peinada-frisa-cardada.jpg';
 import chalecoGabardinaReflectivoImg from '../images/chaleco-de-tela-gabardina-con-reflectivo.jpg';
 import ambosIndustriaAlimenticiaImg from '../images/ambos-industria-alimenticia-velcro-elastico-gabardina.jpg';
+import mametertrucker from '../images/mame-ter-trucker.jpg';
+import camperforrada from '../images/camper-forrada.jpg';
 
 export const PRODUCTS = [
   {
@@ -113,7 +115,7 @@ export const PRODUCTS = [
       "matelase"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23257cff' offset='0'/><stop stop-color='%23143f6b' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      mametertrucker
     ],
     "summary": "Mameluco térmico con forrería matelassé y capucha desmontable.",
     "specs": [
@@ -160,7 +162,7 @@ export const PRODUCTS = [
       "capucha"
     ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%233a86ff' offset='0'/><stop stop-color='%230e2a47' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+camperforrada
     ],
     "summary": "Campera trucker con forrería matelassé 150g y capucha desmontable.",
     "specs": [
