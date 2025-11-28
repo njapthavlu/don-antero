@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import logoDonAntero from "../images/logo-don-antero.jpg";
-
+import placeropa from "../images/place-ropa.jpg";
 
 // Datos simplificados para homepage (solo categorías destacadas)
 const CATEGORIES_FEATURED = [
@@ -23,8 +23,8 @@ const CATEGORIES_FEATURED = [
     title: "Indumentaria de trabajo",
     desc: "Uniformes y ropa técnica para cada rubro.",
     cover:
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%233a86ff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>",
-    icon: <Shirt className="h-5 w-5" />,
+placeropa,
+      icon: <Shirt className="h-5 w-5" />,
     items: [
       { name: "Camisas / Chombas", spec: "Algodón / Dry-fit / Reflectivo" },
       { name: "Pantalones / Jardineros", spec: "Trabajo pesado / multi-bolsillos" },
