@@ -9,6 +9,8 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import QuoteFormMulti from "./QuoteFormMulti";
+import logoDonAntero from "../images/logo-don-antero.jpg";
+
 
 const Section = ({ id, className = "", children }) => (
   <section id={id} className={`mx-auto w-full max-w-7xl px-4 md:px-6 ${className}`}>
@@ -33,10 +35,20 @@ export default function CotizacionPage() {
       {/* Navbar */}
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
         <Section className="flex h-16 items-center gap-6">
-          <a href="/" className="group inline-flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-lg bg-slate-900 text-white"><Factory className="h-5 w-5"/></div>
-            <div className="text-lg font-semibold tracking-tight">Don Antero</div>
-          </a>
+         <a
+  href="/"
+  className="group inline-flex items-center"
+  aria-label="Don Antero - Inicio"
+>
+  <img
+    src={logoDonAntero}
+    alt="Don Antero"
+    className="h-9 w-auto max-w-[190px] object-contain"
+    loading="eager"
+    decoding="async"
+  />
+</a>
+
           <nav className="ml-auto hidden gap-6 md:flex">
             <a href="/" className="hover:text-slate-900">Inicio</a>
             <a href="/catalogo" className="hover:text-slate-900">Catálogo</a>
