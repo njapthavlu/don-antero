@@ -1,6 +1,7 @@
 // Generated from donantero-products-combined.csv
 
 // Import product images
+import remerajersey from '../images/remera-jersey-peinado.jpg';
 import buzoPolarImg from '../images/buzo-polar-antipeeling.jpg';
 import chalecoTruckerImg from '../images/chaleco-trucker.jpg';
 import chalecoPolarImg from '../images/chaleco-polar-antipeeling.jpg';
@@ -22,9 +23,9 @@ export const PRODUCTS = [
       "jersey",
       "algodón",
       "remera"
-    ],
+  ],
     "images": [
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1600'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23143f6b' offset='0'/><stop stop-color='%23257cff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>"
+      remerajersey
     ],
     "summary": "Remera de trabajo en jersey super peinado compactado.",
     "specs": [
