@@ -15,6 +15,7 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import logoDonAntero from "../images/logo-don-antero.jpg";
 import placeropa from "../images/place-ropa.jpg";
+import placetrabajo from "..images/elementos-trabajo.jpg";
 
 // Datos simplificados para homepage (solo categorías destacadas)
 const CATEGORIES_FEATURED = [
@@ -36,7 +37,7 @@ placeropa,
     title: "Elementos de seguridad",
     desc: "Protección certificada para industria y logística.",
     cover:
-      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%230e2a47' offset='0'/><stop stop-color='%23257cff' offset='1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>",
+placetrabajo,
     icon: <HardHat className="h-5 w-5" />,
     items: [
       { name: "Guantes", spec: "Nitrilo / Piel / Anticorte" },
